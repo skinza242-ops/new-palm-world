@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171332">
+<title>Palm World - Local Palm Guide</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="top">
+  <span class="badge">PALM WORLD</span>
+  <span class="badge">Local • photo device se bahar nahi</span>
+</header>
+<main>
+  <section class="hero">
+    <h1>Hath Ki Lakeer</h1>
+    <p>Ek photo lein—rough local scan ke baad reading khud nazar aayegi</p>
+  </section>
+  <section class="card" aria-labelledby="step-title">
+    <div class="intro">
+      <h2 id="step-title">Hatheli ki saaf tasveer lein</h2>
+      <p>Ungliyan upar aur kalai neeche rakhein. Hatheli frame mein seedhi aur roshni saaf ho.</p>
+    </div>
+    <div class="camera-box">
+      <div id="placeholder">
+        <div class="emoji" aria-hidden="true">📸</div>
+        <strong>Hatheli camera ki taraf rakhein</strong>
+        <p>Photo lete hi isi device par rough line-contrast scan chalega.</p>
+      </div>
+      <video id="video" autoplay playsinline aria-label="Camera preview"></video>
+      <img id="preview" alt="Aapki hatheli ki tasveer">
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" id="cameraBtn" type="button">📷 Camera kholein</button>
+      <button class="btn btn-capture hidden" id="captureBtn" type="button">✅ Photo lein</button>
+      <button class="btn btn-secondary hidden" id="retakeBtn" type="button">↻ Doosri photo</button>
+    </div>
+    <div class="field">
+      <label for="gallery">Ya gallery se tasveer chunein</label>
+      <input id="gallery" type="file" accept="image/jpeg,image/png,image/webp" capture="environment">
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="hand">Kaunsa haath?</label>
+        <select id="hand"><option value="right">Seedha / Right</option><option value="left">Ulta / Left</option></select>
+      </div>
+      <div class="field">
+        <label for="dominant">Kya yeh dominant hand hai?</label>
+        <select id="dominant"><option value="yes">Haan</option><option value="no">Nahi</option><option value="unknown">Maloom nahi</option></select>
+      </div>
+    </div>
+    <p class="hint">Yeh single HTML file hai: koi API key, server ya internet request nahi. Photo browser ke andar process hoti hai. Camera permission browser/device ke mutabiq darkar ho sakti hai.</p>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <div id="loading" role="status">Tasveer ka local scan ho raha hai...</div>
+    <section id="result" aria-live="polite">
+      <h2>✨ Aapki rough palm reading</h2>
+      <p id="mainText"></p>
+      <div id="lineResults"></div>
+      <p class="disclaimer">Zaroori: yeh trained AI ya haqiqi palm-line recognition nahi. Single image mein fixed ilaqon ka contrast check hota hai; roshni, angle, skin texture aur framing result badal sakte hain. Palmistry science ya mustaqbil ki peshgoi nahi. Love/shadi, sehat, umr ya paisay ke faislay is par na karein.</p>
+    </section>
+    <p class="notice"><strong>Photo dobara lene ki zaroorat nahi:</strong> Reading isi photo se automatic banti hai. Agar scan ghalat lage to hi doosri photo lein.</p>
+  </section>
+</main>
+<canvas id="canvas" class="hidden"></canvas>
+<script src="./app.js"></script>
+</body>
+</html>
